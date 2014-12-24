@@ -1,0 +1,31 @@
+#include <iostream>
+using namespace std;
+const int length = 10;
+void main()
+{
+	int Greatest = 0, Smallest = 0, TempNum = 0, l = 0, j = 1;
+	int Arr[length] = { 0 };
+	for (int i = 0; i < length; i++)
+	{
+		cin >> Arr[i];		
+	}
+	for (int k = 0; k < length; k++)
+	{
+		for (int i = 0, j = 1; i < length; i++, j++)
+		{
+			l = j;
+			for ( j = l; j < length; j++)
+			{
+				if (Arr[i] > Arr[j])
+				{
+					TempNum = Arr[i];
+					Arr[i] = Arr[j];
+					Arr[j] = TempNum;
+					break;
+				}
+			}
+		}
+	}
+
+	cout << "Smallest of the Series is: " << Arr[0] << "\n" << "Greatest of the Series is: "<<Arr[length-1]<<"\n";
+}
