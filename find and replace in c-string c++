@@ -1,0 +1,69 @@
+#include <iostream>
+#include <fstream>
+#include <math.h>
+using namespace std;
+
+int main()
+{
+	int  i = 0;
+	int  j = 0;
+	int  k = 0;
+	int  m = 0;
+	int  n = 0;						// initialinzing i outside for to us its value outside for
+	int  strcmpare  =  0;			// strcmpare keep the valu of the function 
+	char arry[1000] = { '\0' };
+	char word[ 20 ] = { '\0' };
+	char Wrd2[ 30 ] = { '\0' };
+	cout << "Please Enter the String:> ";
+	cin.getline(arry, 100, '\n');
+	cout <<"The String You Entered :> " <<arry<<"\n";
+	cout <<"Which word to reverse  :> ";
+	cin >> word;
+	for (i = 0, j = 0, k = 0; i < 100; i++)
+	{
+		if (arry[i] == word[j])
+		{
+			j = i;
+			while ((arry[j] != ' ') && (arry[j] != '\0') && (arry[j] != '.') && (arry[j] != ','))
+			{
+				Wrd2[k] = arry[j];
+				j++;
+				k++;
+			}
+			n = j;
+			m = k;
+			k = 0;
+			j = 0;
+			strcmpare = strcmp(word, Wrd2);
+			if (strcmpare == 0)
+			{
+				cout << "word found\n";
+				k = m - 1;
+				j = n - 1;
+				j -= k;
+				while (k >= 0)
+				{
+					arry[j] = Wrd2[k];
+					k--;
+					j++;
+				}
+				
+				break;
+			}
+			for (int l = 0; l < 20; l++)
+			{
+				Wrd2[l] = { '\0' };
+			}
+			
+		}
+	}
+	if (strcmpare != 0)
+	{
+		cout << "Word not Found\n";
+	}
+	
+	cout << arry<<"\n" ;
+
+
+	return 0;
+}
